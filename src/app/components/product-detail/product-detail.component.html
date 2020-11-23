@@ -1,0 +1,166 @@
+<div id="_zalo" style="position: FIXED; Z-INDEX: 99999; BOTTOM: 15px; right: 15px;">
+    <a href="https://zalo.me/0363004000" target="_blank" alt="chat zalo"><img src="https://stc.sp.zdn.vn/chatwidget/images/stick_zalo.png" alt="zalo" title="zalo" border="0"></a>
+</div>
+<a href="tel:0363004000" class="suntory-alo-phone suntory-alo-green" id="suntory-alo-phoneIcon" style="left: 0px; bottom: 0px;">
+	<div class="suntory-alo-ph-circle"></div>
+	<div class="suntory-alo-ph-circle-fill"></div>
+	<div class="suntory-alo-ph-img-circle"><i class="fa fa-phone"></i></div>
+	<div class="tel hidden-sm hidden-xs">
+		<span class="call-now-new">0363004000</span>
+	</div>
+</a>
+<div *ngIf="product">
+    <section class="jumbotron text-center" >
+        <div class="container">
+            <h1 class="jumbotron-heading">{{product.productName}}</h1>
+            <p class="lead text-muted mb-0">{{product.productDescription}}</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Category</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Product</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="wrapper row">
+            <!-- Image -->
+            <div class="col-12 col-lg-6">
+                <div class="preview bg-light mb-3">
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src={{product.productImage}} /></div>
+                        <div class="tab-pane" id="pic-2"><img src={{product.productImage}}/></div>
+                        <div class="tab-pane" id="pic-3"><img src="https://bizweb.dktcdn.net/100/379/259/products/received-230917278137863-jpeg.jpg?v=1584696119743"/></div>
+                      </div>
+                      <ul class="preview-thumbnail nav nav-tabs">
+                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src={{product.productImage}} /></a></li>
+                        <li><a data-target="#pic-2" data-toggle="tab"><img src={{product.productImage}} /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src="https://bizweb.dktcdn.net/100/379/259/products/received-230917278137863-jpeg.jpg?v=1584696119743" /></a></li>
+                      </ul>
+                </div>
+            </div>
+    
+            <!-- Add to cart -->
+            <div class="col-12 col-lg-6 add_to_cart_block">
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h3>{{product.productName}}</h3>
+                        <p class="product_description">{{product.productDescription}}</p>
+                        <p class="price">{{product.buyPrice}} ₫</p>
+                        <p class="price_discounted">{{product.buyPrice}} ₫</p>
+                        <form method="get" action="/shoppingCart">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label for="colors">Loại</label>
+                                    <select class="custom-select" id="colors">
+                                        <option value="1" selected>Đường phèn</option>
+                                        <option value="2">Hạt Chia</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label>Số lượng</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="" (click)="minusQuantity($event)">
+                                                    <i class="fa fa-minus"></i>
+                                                </button>
+                                            </div>
+                                            <input type="text" class="form-control" id="quantity" name="quantity" min="1" max="100" [value]="quantity">
+                                            <div class="input-group-append">
+                                                <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="" (click)="plusQuantity($event)">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <a (click)="addToCart(product,quantity)" class="btn btn-primary btn-lg btn-block text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> Đặt mua
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <a class="favourite-icon" href="/favourite"><i class="fa fa-heart-o fa-3x"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="product_rassurance">
+                            Gọi ngay <a href="callto:0363004000">0363004000</a> để đặt và giao hàng.
+                        </div>
+                        <div class="reviews_product p-3 mb-2 ">
+                            3 đánh giá
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            (4/5)
+                            <a class="pull-right" href="#reviews">Xem tất cả đánh giá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <!-- Description -->
+            <div class="col-12">
+                <div class="card border-light mb-3">
+                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i> Mô tả chi tiết</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{product.productDescription}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Reviews -->
+            <div class="col-12" id="reviews">
+                <div class="card border-light mb-3">
+                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Đánh giá</div>
+                    <div class="card-body">
+                        <div class="review">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            <meta itemprop="datePublished" content="15-11-2020">November 15, 2020
+    
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            bởi Ẩn danh
+                            <span class="blockquote">
+                                <p class="mb-0">Comment Testing 1</p>
+                            </span>
+                            <hr>
+                        </div>
+                        <div class="review">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                            <meta itemprop="datePublished" content="16-11-2020">November 16, 2020
+    
+                            <span class="fa fa-star" aria-hidden="true"></span>
+                            <span class="fa fa-star" aria-hidden="true"></span>
+                            <span class="fa fa-star" aria-hidden="true"></span>
+                            <span class="fa fa-star" aria-hidden="true"></span>
+                            <span class="fa fa-star" aria-hidden="true"></span>
+                            bởi Tran Lang
+                            <span class="blockquote">
+                                <p class="mb-0">Comment Testing 2</p>
+                            </span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,323 @@
+.bloc_left_price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+.category_block li:hover {
+    background-color: #007bff;
+}
+.category_block li:hover a {
+    color: #ffffff;
+}
+.category_block li a {
+    color: #343a40;
+}
+.add_to_cart_block .price {
+    color: #c01508;
+    /* text-align: center; */
+    font-weight: bold;
+    font-size: 150%;
+    margin-bottom: 0;
+}
+.add_to_cart_block .price_discounted {
+    color: #343a40;
+    /* text-align: center; */
+    text-decoration: line-through;
+}
+.add_to_cart_block .product_description {
+    color: #6c757d;
+    margin-bottom: 15px;
+    padding: 15px 0px;
+    border-top: dashed 1px #ebebeb;
+    border-bottom: dashed 1px #ebebeb;
+}
+.product_rassurance {
+    padding: 10px;
+    margin-top: 10%;
+    background: #ffffff;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+}
+.product_rassurance .list-inline {
+    margin-bottom: 0;
+    /* text-transform: uppercase; */
+    text-align: center;
+}
+.product_rassurance .list-inline li:hover {
+    color: #343a40;
+}
+.reviews_product .fa-star {
+    color: gold;
+}
+.pagination {
+    margin-top: 20px;
+}
+
+.preview {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+@media screen and (max-width: 996px) {
+    .preview {
+    margin-bottom: 20px; } }
+
+.preview-pic {
+-webkit-box-flex: 1;
+-webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+        flex-grow: 1; }
+
+.preview-thumbnail.nav-tabs {
+border: none;
+margin-top: 15px; }
+.preview-thumbnail.nav-tabs li {
+    width: 18%;
+    margin-right: 2.5%; }
+    .preview-thumbnail.nav-tabs li img {
+    max-width: 100%;
+    display: block; }
+    .preview-thumbnail.nav-tabs li a {
+    padding: 0;
+    margin: 0; }
+    .preview-thumbnail.nav-tabs li:last-of-type {
+    margin-right: 0; }
+
+@media screen and (min-width: 997px) {
+.wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; } }
+img {
+    max-width: 100%; }
+.tab-content {
+    overflow: hidden; }
+.tab-content img {
+    width: 100%;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s; }
+@-webkit-keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+                transform: scale(3); }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1); } }
+    
+    @keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+                transform: scale(3); }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+                transform: scale(1); } }
+
+.suntory-alo-phone {
+    background-color:transparent;
+    cursor:pointer;
+    height:120px;
+    position:fixed;
+    transition:visibility 0.5s ease 0s;
+    width:120px;
+    z-index:200000 !important
+    }
+.suntory-alo-ph-circle {
+    animation:1.2s ease-in-out 0s normal none infinite running suntory-alo-circle-anim;
+    background-color:transparent;
+    border:2px solid rgba(30,30,30,0.4);
+    border-radius:100%;
+    height:100px;
+    left:0px;
+    opacity:0.1;
+    position:absolute;
+    top:0px;
+    transform-origin:50% 50% 0;
+    transition:all 0.5s ease 0s;
+    width:100px
+    }
+.suntory-alo-ph-circle-fill {
+    animation:2.3s ease-in-out 0s normal none infinite running suntory-alo-circle-fill-anim;
+    border:2px solid transparent;
+    border-radius:100%;
+    height:70px;
+    left:15px;
+    position:absolute;
+    top:15px;
+    transform-origin:50% 50% 0;
+    transition:all 0.5s ease 0s;
+    width:70px
+    }
+.suntory-alo-ph-img-circle {
+    border:2px solid transparent;
+    border-radius:100%;
+    height:50px;
+    left:25px;
+    opacity:1;
+    position:absolute;
+    top:25px;
+    transform-origin:50% 50% 0;
+    width:50px
+    }
+    .suntory-alo-phone.suntory-alo-hover,
+    .suntory-alo-phone:hover {
+    opacity:1
+    }
+    .suntory-alo-phone.suntory-alo-active .suntory-alo-ph-circle {
+    animation:1.1s ease-in-out 0s normal none infinite running suntory-alo-circle-anim !important
+    }
+    .suntory-alo-phone.suntory-alo-static .suntory-alo-ph-circle {
+    animation:2.2s ease-in-out 0s normal none infinite running suntory-alo-circle-anim !important
+    }
+.suntory-alo-phone.suntory-alo-hover .suntory-alo-ph-circle,
+.suntory-alo-phone:hover .suntory-alo-ph-circle {
+    border-color:#00aff2;
+    opacity:0.5
+    }
+.suntory-alo-phone.suntory-alo-green.suntory-alo-hover .suntory-alo-ph-circle,
+.suntory-alo-phone.suntory-alo-green:hover .suntory-alo-ph-circle {
+    border-color:red;
+    opacity:1
+    }
+.suntory-alo-phone.suntory-alo-green .suntory-alo-ph-circle {
+    border-color:red;
+    opacity:1
+    }
+.suntory-alo-phone.suntory-alo-hover .suntory-alo-ph-circle-fill,
+.suntory-alo-phone:hover .suntory-alo-ph-circle-fill {
+    background-color:rgba(242,0,0,0.9)
+    }
+.suntory-alo-phone.suntory-alo-green.suntory-alo-hover .suntory-alo-ph-circle-fill,
+.suntory-alo-phone.suntory-alo-green:hover .suntory-alo-ph-circle-fill {
+    background-color:red
+    }
+.suntory-alo-phone.suntory-alo-green .suntory-alo-ph-circle-fill {
+    background-color:rgba(242,0,0,0.9)
+    }
+.suntory-alo-phone.suntory-alo-hover .suntory-alo-ph-img-circle,
+.suntory-alo-phone:hover .suntory-alo-ph-img-circle {
+    background-color:#00aff2
+    }
+.suntory-alo-phone.suntory-alo-green.suntory-alo-hover .suntory-alo-ph-img-circle,
+.suntory-alo-phone.suntory-alo-green:hover .suntory-alo-ph-img-circle {
+    background-color:red
+    }
+.suntory-alo-phone.suntory-alo-green .suntory-alo-ph-img-circle {
+    background-color:red
+    }
+    @keyframes suntory-alo-circle-anim {
+    0% {
+        opacity:0.1;
+        transform:rotate(0deg) scale(0.5) skew(1deg)
+    }
+    30% {
+        opacity:0.5;
+        transform:rotate(0deg) scale(0.7) skew(1deg)
+    }
+    100% {
+        opacity:0.6;
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    }
+    @keyframes suntory-alo-circle-img-anim {
+    0% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    10% {
+        transform:rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform:rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform:rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform:rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    100% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    }
+    @keyframes suntory-alo-circle-fill-anim {
+    0% {
+        opacity:0.2;
+        transform:rotate(0deg) scale(0.7) skew(1deg)
+    }
+    50% {
+        opacity:0.2;
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    100% {
+        opacity:0.2;
+        transform:rotate(0deg) scale(0.7) skew(1deg)
+    }
+    }
+.suntory-alo-ph-img-circle i {
+    animation:1s ease-in-out 0s normal none infinite running suntory-alo-circle-img-anim;
+    font-size:30px;
+    line-height:50px;
+    padding-left:10px;
+    color:#fff
+    }
+    @keyframes suntory-alo-ring-ring {
+    0% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    10% {
+        transform:rotate(-25deg) scale(1) skew(1deg)
+    }
+    20% {
+        transform:rotate(25deg) scale(1) skew(1deg)
+    }
+    30% {
+        transform:rotate(-25deg) scale(1) skew(1deg)
+    }
+    40% {
+        transform:rotate(25deg) scale(1) skew(1deg)
+    }
+    50% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    100% {
+        transform:rotate(0deg) scale(1) skew(1deg)
+    }
+    }
+.call-now-new {
+    font-weight:bold;
+    font-size:19px;
+    display:block;
+    color:red;
+    text-align:right;
+    margin:5px 12px
+    }
+.tel {
+    background:#f1f1f1;
+    width:155px;
+    height:40px;
+    position:relative;
+    overflow:hidden;
+    background-size:40px;
+    border-radius:28px;
+    border:solid 1px #ccc;
+    z-index:-1;
+    top:30px;
+    left:50px;
+    -webkit-transition:width 1s;
+    transition:width 1s
+    }
