@@ -1,0 +1,147 @@
+<body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <h2>Thanh toán đơn hàng</h2>
+  </div>
+  <form class="needs-validation" novalidate="">
+  <div class="row">
+    <div class="col-md-4">
+        <h4 class="mb-3">Thông tin nhận hàng</h4>
+            <div class="mb-3">
+              <label for="fullName">Họ và tên</label>
+              <input type="text" class="form-control" id="fullName" placeholder="" value="" required="">
+            </div>
+  
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="email" class="form-control" id="email" placeholder="langthixuantran@gmail.com" required="">
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="phone">Số điện thoại <span class="text-muted">(Tùy chọn)</span></label>
+            <input type="text" class="form-control" id="phone" placeholder="">
+          </div>
+  
+          <div class="mb-3">
+            <label for="address">Địa chỉ <span class="text-muted">(Tùy chọn)</span></label>
+            <input type="text" class="form-control" id="address" placeholder="" required="">
+          </div>
+            <div class="mb-3">
+              <label for="city">Tỉnh thành</label>
+              <select class="custom-select d-block w-100" id="city" required="">
+                <option *ngFor="let item of cities" [value]="item.code">{{item.name}}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="city">Quận/Huyện</label>
+                <select class="custom-select d-block w-100" id="city" required="">
+                  <option value="">...</option>
+                  <option>Quận 1</option>
+                  <option>Quận 8</option>
+                </select>
+              </div>
+            <div class="mb-3">
+                <label for="city">Phường/Xã</label>
+                <select class="custom-select d-block w-100" id="city" required="">
+                  <option value="">...</option>
+                  <option>Phường 1</option>
+                  <option>Phường 16</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                  <label for="note">Ghi Chú</label>
+                  <textarea class="form-control" id="note" rows="3"></textarea>
+                </div>
+      </div>
+      <div class="col-md-4">
+        <h4 class="mb-3">Vận chuyển</h4>
+        <div class="alert alert-danger" role="alert">
+            Khu vực không hỗ trợ vận chuyển!
+          </div>
+          
+        <h4 class="mb-3">Thanh toán</h4>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <div class="custom-control custom-radio">
+                    <input id="bank" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <label class="custom-control-label" for="bank">Chuyển khoản qua ngân hàng</label>
+                    </div>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p><small>Vietcombank:</small></p>
+                    <p><small>STK: 0071000730018</small></p>
+                    <p><small>Chủ Tài Khoản: DINH THI THANH THAO</small></p>
+                    <p><small>Mã chuyển khoản: HO_TEN-MA_DAT_HANG</small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <div class="custom-control custom-radio">
+                    <input id="cod" name="paymentMethod" type="radio" class="custom-control-input" required="" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <label class="custom-control-label" for="cod">Thanh toán khi giao hàng (COD)</label>
+                    </div>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p><small>Bạn chỉ phải thanh toán khi nhận được hàng.</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="col-md-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Đơn hàng</span>
+        <span class="badge badge-secondary badge-pill">{{totalQuantity}}</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li *ngFor = "let product of products" class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0"><span class="badge badge-secondary badge-pill">{{product.quantity}}</span> {{product.productName}}</h6>
+          </div>
+          <span class="text-muted">{{product.buyPrice * product.quantity | currency:'VND'}}</span>
+        </li>
+        </ul>
+        <hr class="mb-4">
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Áp dụng</button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Tạm tính</h6>
+            </div>
+            <span class="text-muted">{{totalPrice | currency:'VND'}}</span>
+          </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Phí vận chuyển</h6>
+            </div>
+            <span class="text-muted">-</span>
+          </li>
+        <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Tổng cộng</h6>
+            </div>
+            <span class="text-success">{{totalPrice | currency:'VND'}}</span>
+          </li>
+      </ul>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Đặt hàng</button>
+    </div>
+  </div>
+</form>
+</div>
+</body>
