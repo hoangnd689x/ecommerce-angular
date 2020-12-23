@@ -1,38 +1,67 @@
 <div class="container">
     <div class="row">
-        <div class="col">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/">Category</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
-                </ol>
-            </nav>
+        <div class="col-sm-12 col-md-12 col-md-offsets-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 15%">Ảnh sản phẩm</th>
+                        <th scope="col" style="width: 25%">Tên sản phẩm</th>
+                        <th scope="col" style="width: 20%">Đơn giá</th>
+                        <th scope="col" style="width: 15%">Số lượng</th>
+                        <th scope="col" style="width: 20%">Thành tiền</th>
+                        <th scope="col" style="width: 5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items;index as i">
+                        <td><div class="media">
+                            <a class="thumbnail pull-left" href="/product/{{item.productId}}"> <img class="media-object" src="{{item.productImage}}" style="width: 72px; height: 72px;"> </a>
+                        </div></td>
+                        <td>{{item.productName}}</td>
+                        <td>{{item.buyPrice | currency:'VND'}}</td>
+                        <td><div class="input-group mb-3">
+                            <div class="input-group-btn">
+                                <button type="button" class="quantity-left-minus btn btn-default btn-number"  data-type="minus" data-field="" (click)="minusQuantity(item)">
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+                            <input type="text" class="form-control" min="1" max="100" [value]="item.quantity" [(ngModel)]="item.quantity" (change)="onInputChanged(item,$event)">
+                            <div class="input-group-btn">
+                                <button type="button" class="quantity-right-plus btn btn-default btn-number" data-type="plus" data-field="" (click)="plusQuantity(item)">
+                                    <i class="fa fa-angle-up"></i>
+                                </button>
+                            </div>
+                        </div></td>
+                        <td>{{item.buyPrice * item.quantity | currency:'VND'}}</td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger" (click)="removeItem(i)">
+                                <i class="fa fa-times"></i>
+                            </button></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Tổng tiền: </h5></td>
+                        <td><h5><strong>{{totalPrice | currency:'VND'}}</strong></h5></td>
+                        <td>   </td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" class="btn btn-outline-primary">
+                            <i class="fa fa-shopping-cart"></i> Tiếp tục mua
+                        </button></td>
+                        <td>
+                        <button routerLink='/checkout' type="button" class="btn btn-primary">
+                            Thanh toán <i class="fa fa-play"></i>
+                        </button></td>
+                        <td>   </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Ảnh sản phẩm</th>
-                    <th scope="col">Tên sản phẩm</th>
-                    <th scope="col">Đơn giá</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Thành tiền</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items;index as i">
-                    <th scope="row">{{i+1}}</th>
-                    <td></td>
-                    <td>{{item.productName}}</td>
-                    <td>{{item.buyPrice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.buyPrice * item.quantity}} đ</td>
-                </tr>
-              
-            </tbody>
-        </table>
-    </div>
-</div>
+ </div>

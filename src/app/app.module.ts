@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductDetailService } from './service/product-detail.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CartService } from './service/cart.service';
+import { CommonService } from './service/common.service';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,11 @@ import { CartService } from './service/cart.service';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [PaymentService,ProductService,ProductDetailService,CartService],
+  providers: [PaymentService,ProductService,ProductDetailService,CartService,CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CartService } from './service/cart.service';
 
@@ -11,8 +10,9 @@ export class AppComponent {
   title = 'ecommerce-angular';
   totalPrice: number = 0;
   totalQuantity: number = 0;
-  constructor(private cartService: CartService) {
-    this.cartService.totalPrice.subscribe(data=>this.totalPrice=data);
+  constructor(private cartService: CartService) {}
+  ngOnInit(): void {
     this.cartService.totalQuantity.subscribe(data=>this.totalQuantity=data);
+    this.cartService.totalPrice.subscribe(data=>this.totalPrice=data);
   }
 }

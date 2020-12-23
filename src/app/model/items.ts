@@ -7,6 +7,7 @@ export class Item {
     productDescription: string;
     productImage: string;
     quantity: number;
+    
     constructor(product: Product, quantity: number) {
         this.productId = product.productId;
         this.productName = product.productName;

@@ -13,7 +13,7 @@
     <section class="jumbotron text-center" >
         <div class="container">
             <h1 class="jumbotron-heading">{{product.productName}}</h1>
-            <p class="lead text-muted mb-0">{{product.productDescription}}</p>
+            <p class="lead text-muted mb-0" [innerHTML]="product.productDescription"></p>
         </div>
     </section>
     <div class="container">
@@ -52,9 +52,9 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <h3>{{product.productName}}</h3>
-                        <p class="product_description">{{product.productDescription}}</p>
-                        <p class="price">{{product.buyPrice}} ₫</p>
-                        <p class="price_discounted">{{product.buyPrice}} ₫</p>
+                        <p class="product_description" [innerHTML]="product.productDescription"></p>
+                        <p class="price">{{product.buyPrice | currency:'VND'}}</p>
+                        <p class="price_discounted">{{product.buyPrice | currency:'VND'}}</p>
                         <form method="get" action="/shoppingCart">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -82,28 +82,20 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <a (click)="addToCart(product,quantity)" class="btn btn-primary btn-lg btn-block text-uppercase">
-                                        <i class="fa fa-shopping-cart"></i> Đặt mua
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <a (click)="addToCart(product,quantity)" class="btn btn-outline-primary btn-lg btn-block text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
                                     </a>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <a class="favourite-icon" href="/favourite"><i class="fa fa-heart-o fa-3x"></i></a>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <a (click)="addToCart(product,quantity)" routerLink='/cart' class="btn btn-primary btn-lg btn-block text-uppercase">
+                                        <i class="fa fa-shopping-cart"></i> Đặt mua
+                                    </a>
                                 </div>
                             </div>
                         </form>
                         <div class="product_rassurance">
                             Gọi ngay <a href="callto:0363004000">0363004000</a> để đặt và giao hàng.
-                        </div>
-                        <div class="reviews_product p-3 mb-2 ">
-                            3 đánh giá
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            (4/5)
-                            <a class="pull-right" href="#reviews">Xem tất cả đánh giá</a>
                         </div>
                     </div>
                 </div>
@@ -116,48 +108,7 @@
                 <div class="card border-light mb-3">
                     <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i> Mô tả chi tiết</div>
                     <div class="card-body">
-                        <p class="card-text">
-                            {{product.productDescription}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Reviews -->
-            <div class="col-12" id="reviews">
-                <div class="card border-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Đánh giá</div>
-                    <div class="card-body">
-                        <div class="review">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <meta itemprop="datePublished" content="15-11-2020">November 15, 2020
-    
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            bởi Ẩn danh
-                            <span class="blockquote">
-                                <p class="mb-0">Comment Testing 1</p>
-                            </span>
-                            <hr>
-                        </div>
-                        <div class="review">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <meta itemprop="datePublished" content="16-11-2020">November 16, 2020
-    
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            bởi Tran Lang
-                            <span class="blockquote">
-                                <p class="mb-0">Comment Testing 2</p>
-                            </span>
-                            <hr>
-                        </div>
+                        <p class="card-text" [innerHTML]="product.productDescription"></p>
                     </div>
                 </div>
             </div>
